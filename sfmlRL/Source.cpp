@@ -1,8 +1,11 @@
 #include <SFML/Graphics.hpp>
-
+#include "Game.h"
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Roguelike");
+    window.setFramerateLimit(60);
+    Game game(window);
+
 
     while (window.isOpen())
     {
