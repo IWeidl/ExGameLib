@@ -1,0 +1,6 @@
+{
+  "Player": {
+    "coords": [ 50, 50 ],
+    "texture": "player.png"
+  }
+}

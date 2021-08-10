@@ -1,14 +1,8 @@
 #include "Entity.h"
 
-Entity::Entity(sf::RenderWindow& gameWindow, std::string imagePath)
-	: gameWindow(gameWindow)
+Entity::Entity(std::string imagePath, sf::Vector2i coords)
 {
-	try {
-		texture.loadFromFile(imagePath);
-	}
-	catch (const std::exception& e) {
-		std::cout << e.what();
-	}
+
 }
 
 void Entity::Draw()
