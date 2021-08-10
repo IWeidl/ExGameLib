@@ -1,23 +1,24 @@
 #include <SFML/Graphics.hpp>
 #include "Game.h"
+#include <iostream>
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Roguelike");
-    window.setFramerateLimit(60);
-    Game game(window);
+    sf::RenderWindow gameWindow(sf::VideoMode(800, 600), "SFML Roguelike");
+    gameWindow.setFramerateLimit(60);
+    Game game(gameWindow);
 
 
-    while (window.isOpen())
+    while (gameWindow.isOpen())
     {
         sf::Event event;
-        while (window.pollEvent(event))
+        while (gameWindow.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
-                window.close();
+                gameWindow.close();
         }
-
-        window.clear();
-        window.display();
+        gameWindow.clear();
+        game.Draw();
+        gameWindow.display();
     }
 
     return 0;

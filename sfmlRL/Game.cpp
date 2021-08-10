@@ -1,9 +1,13 @@
 #include "Game.h"
-Game::Game(sf::RenderWindow& wnd)
-	: wnd(wnd)
+Game::Game(sf::RenderWindow& gameWindow)
+	: gameWindow(gameWindow)
 {
 }
-void Draw()
+void Game::Draw()
 {
-
+	// Draw all Entities
+	for (auto& entity : entities)
+	{
+		entity.Draw();
+	}
 }
