@@ -3,7 +3,6 @@
 #include "Entity.h"
 #include <string>
 #include <fstream>
-
 using json = nlohmann::json;
 class GameData
 {
@@ -14,6 +13,7 @@ public:
 
 	// TODO: Implement LoadEntities()
 protected:
+	
 	
 private:
 };

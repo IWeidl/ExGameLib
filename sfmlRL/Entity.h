@@ -16,5 +16,7 @@ protected:
 private:
 	sf::Texture texture;
 	sf::Sprite sprite;
+	void LoadTexture(std::string imagePath);
+	void CreateSprite();
 };
 

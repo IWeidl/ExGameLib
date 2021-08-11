@@ -152,6 +152,7 @@
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="Entities.json" />
     <None Include="packages.config" />
   </ItemGroup>

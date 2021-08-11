@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Entities">
       <UniqueIdentifier>{636798a8-406a-468c-a247-e70d25f6837a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\img">
+      <UniqueIdentifier>{7c971685-956d-45ee-a125-3816796a447a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -54,6 +57,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Entities.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ClassDiagram.cd">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
