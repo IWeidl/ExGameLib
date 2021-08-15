@@ -130,6 +130,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,6 +156,7 @@
     <None Include="ClassDiagram.cd" />
     <None Include="Entities.json" />
     <None Include="packages.config" />
+    <None Include="Textures.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Downloads\player.png" />

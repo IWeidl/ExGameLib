@@ -8,10 +8,13 @@ class GameData
 {
 public:
 	GameData(sf::RenderWindow& gameWindow);
-	std::vector<Entity> entities;
+	
 	static json FileToJSON(std::string fileName);
 	int LoadEntity(json object, std::string entityName);
+	void LoadTextures(json jsonData);
 
+	std::vector<Entity> entities;
+	std::vector<sf::Texture> textures;
 	// TODO: Implement LoadEntities()
 protected:
 	

@@ -62,6 +62,9 @@
     <None Include="ClassDiagram.cd">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="Textures.json">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Downloads\player.png">

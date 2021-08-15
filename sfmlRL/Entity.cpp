@@ -1,11 +1,11 @@
 #include "Entity.h"
 
 
-Entity::Entity(sf::RenderWindow& gameWindow, std::string imagePath, sf::Vector2f coords)
-	: gameWindow(gameWindow)
+Entity::Entity(sf::RenderWindow& gameWindow, sf::Texture& texture, sf::Vector2f coords)
+	: gameWindow(gameWindow),
+	texture(texture)
 {
 	position = coords;
-	LoadTexture(imagePath);
 	CreateSprite();
 }
 
@@ -21,14 +21,7 @@ void Entity::Update()
 	// TODO: Implement updating of entity.
 }
 
-void Entity::LoadTexture(std::string imagePath)
-{
-	if (!texture.loadFromFile(imagePath))
-	{
-		std::cout << "ERROR: Entity::LoadTexture(): Error loading texture: " << imagePath << std::endl;
-	}
-	std::cout << "Successfully loaded texture: " << imagePath << std::endl;
-}
+
 
 void Entity::CreateSprite()
 {
