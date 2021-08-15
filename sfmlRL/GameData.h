@@ -15,8 +15,8 @@ public:
 	int LoadEntity(json object, std::string entityName);
 	void LoadTextures(json jsonData);
 	void LoadEntities(json jsonData);
-	std::vector<std::unique_ptr<Entity>> entities;
-	std::vector<sf::Texture> textures;
+	std::vector<Entity*> entities;
+	std::vector<sf::Texture*> textures;
 	// TODO: Implement LoadEntities()
 protected:
 	

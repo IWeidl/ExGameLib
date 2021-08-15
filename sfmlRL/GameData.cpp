@@ -26,9 +26,9 @@ int GameData::LoadEntity(json object, std::string entityName)
 		json temp = object.at(entityName);
 		int texture = temp.at("TextureID");
 		sf::Vector2f coords(temp.at("coords").at(0), temp.at("coords").at(1));
-		Entity entity(gameWindow, coords);
-		entity.CreateSprite(textures[texture]);
-		entities.push_back(std::make_unique<Entity>(entity));
+		Entity* entity = new Entity(gameWindow, coords);
+		entity->CreateSprite(*textures[texture]);
+		entities.push_back(entity);
 		return entities.size() - 1;	// Returns the index of last vector pushed back
 	}
 	catch (std::exception e) {
@@ -39,10 +39,10 @@ int GameData::LoadEntity(json object, std::string entityName)
 
 void GameData::LoadTextures(json jsonData)
 {
-	sf::Texture texture;
+	sf::Texture* texture = new sf::Texture;
 	for (auto& el : jsonData.items())
 	{
-		if (!texture.loadFromFile(el.value()))
+		if (!texture->loadFromFile(el.value()))
 		{
 			std::cout << "ERROR: Entity::LoadTexture(): Error loading texture: " << el.key() << " at file path: " << el.key() << std::endl;
 		}
