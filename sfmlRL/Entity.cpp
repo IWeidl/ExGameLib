@@ -1,12 +1,10 @@
 #include "Entity.h"
 
 
-Entity::Entity(sf::RenderWindow& gameWindow, sf::Texture& texture, sf::Vector2f coords)
-	: gameWindow(gameWindow),
-	texture(texture)
+Entity::Entity(sf::RenderWindow& gameWindow, sf::Vector2f coords)
+	: gameWindow(gameWindow)
 {
 	position = coords;
-	CreateSprite();
 }
 
 void Entity::Draw()
@@ -23,7 +21,7 @@ void Entity::Update()
 
 
 
-void Entity::CreateSprite()
+void Entity::CreateSprite(sf::Texture& texture)
 {
 	sprite.setTexture(texture);
 }
