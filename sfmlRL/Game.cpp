@@ -9,8 +9,8 @@ Game::Game(sf::RenderWindow& gameWindow)
 void Game::Draw()
 {
 	// Draw all Entities
-	for (auto& entity : gameData.entities)
+	for (Entity& entity : gameData.entities)
 	{
-		entity->Draw();
+		entity.Draw();
 	}
 }

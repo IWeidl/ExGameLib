@@ -3,6 +3,7 @@
 GameData::GameData(sf::RenderWindow& gameWindow)
 	: gameWindow(gameWindow)
 {
+
 }
 
 json GameData::FileToJSON(std::string fileName)
@@ -28,7 +29,7 @@ int GameData::LoadEntity(json object, std::string entityName)
 		sf::Vector2f coords(temp.at("coords").at(0), temp.at("coords").at(1));
 		Entity entity(gameWindow, coords);
 		entity.CreateSprite(textures[texture]);
-		entities.push_back(std::make_unique<Entity>(entity));
+		entities.push_back(entity);
 		return entities.size() - 1;	// Returns the index of last vector pushed back
 	}
 	catch (std::exception e) {
