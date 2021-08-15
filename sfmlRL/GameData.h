@@ -7,6 +7,7 @@ using json = nlohmann::json;
 class GameData
 {
 public:
+	GameData(sf::RenderWindow& gameWindow);
 	std::vector<Entity> entities;
 	static json FileToJSON(std::string fileName);
 	int LoadEntity(json object, std::string entityName);
@@ -16,5 +17,6 @@ protected:
 	
 	
 private:
+	sf::RenderWindow& gameWindow;
 };
 

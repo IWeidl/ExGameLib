@@ -1,6 +1,7 @@
 #include "Game.h"
 Game::Game(sf::RenderWindow& gameWindow)
-	: gameWindow(gameWindow)
+	: gameWindow(gameWindow),
+	gameData(gameWindow)
 {
 	
 	gameData.LoadEntity(GameData::FileToJSON("Entities.json"), "Player");

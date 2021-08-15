@@ -7,16 +7,17 @@
 class Entity
 {
 public:
-	Entity(std::string imagePath, sf::Vector2i coords);
+	Entity(sf::RenderWindow& gameWindow, std::string imagePath, sf::Vector2f coords);
 	void Draw();
 	void Update();
 protected:
-	sf::Vector2i position;
+	sf::Vector2f position;
 	
 private:
 	sf::Texture texture;
 	sf::Sprite sprite;
 	void LoadTexture(std::string imagePath);
 	void CreateSprite();
+	sf::RenderWindow& gameWindow;
 };
 

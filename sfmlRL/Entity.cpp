@@ -1,7 +1,8 @@
 #include "Entity.h"
 
 
-Entity::Entity(std::string imagePath, sf::Vector2i coords)
+Entity::Entity(sf::RenderWindow& gameWindow, std::string imagePath, sf::Vector2f coords)
+	: gameWindow(gameWindow)
 {
 	position = coords;
 	LoadTexture(imagePath);
@@ -10,7 +11,9 @@ Entity::Entity(std::string imagePath, sf::Vector2i coords)
 
 void Entity::Draw()
 {
-	// TODO: Implement drawing of entity.
+	sprite.setPosition(position);
+	gameWindow.draw(sprite);
+
 }
 
 void Entity::Update()
