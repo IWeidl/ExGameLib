@@ -1,5 +1,9 @@
 #include "TextureManager.h"
 
+TextureManager::TextureManager()
+{
+}
+
 void TextureManager::LoadTextures(json jsonData)
 {
 	for (auto& el : jsonData.items())

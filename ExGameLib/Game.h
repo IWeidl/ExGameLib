@@ -11,8 +11,6 @@ class Game
 public:
 	Game(sf::RenderWindow& wnd);
 	void Draw();
-	EntityManager entityManager;
-	TextureManager textureManager;
 	GameData gameData;
 
 private:
