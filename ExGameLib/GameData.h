@@ -14,12 +14,8 @@ public:
 	// Release heap memory
 	~GameData();
 	static json FileToJSON(std::string fileName);
-	void LoadTextures(json jsonData);
 	//void LoadEntities(json jsonData);
 	
-	// Vector of pointers to entities/textures on heap
-	//std::vector<Entity*> entities;
-	std::vector<sf::Texture*> textures;
 	sf::RenderWindow& gameWindow;
 protected:
 	

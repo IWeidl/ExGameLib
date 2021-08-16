@@ -5,7 +5,7 @@ EntityManager::EntityManager(GameData& gameData)
 {
 }
 
-void EntityManager::LoadEntities(json jsonData)
+void EntityManager::LoadEntities(json jsonData, std::vector<sf::Texture*> textures)
 {
 	for (auto& el : jsonData.items())
 	{
@@ -14,7 +14,7 @@ void EntityManager::LoadEntities(json jsonData)
 		int texture = temp.at("TextureID");
 		sf::Vector2f position(temp.at("Position").at(0), temp.at("Position").at(1));
 		Entity* entity = new Entity(gameData.gameWindow, position);
-		entity->CreateSprite(*gameData.textures[texture]);
+		entity->CreateSprite(*textures[texture]);
 		entities.push_back(entity);
 	}
 }

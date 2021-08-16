@@ -2,10 +2,11 @@
 Game::Game(sf::RenderWindow& gameWindow)
 	: gameWindow(gameWindow),
 	gameData(gameWindow),
-	entityManager(gameData)
+	entityManager(gameData),
+	textureManager()
 {
-	gameData.LoadTextures(GameData::FileToJSON("Textures.json"));
-	entityManager.LoadEntities(GameData::FileToJSON("Entities.json"));
+	textureManager.LoadTextures(GameData::FileToJSON("Textures.json"));
+	entityManager.LoadEntities(GameData::FileToJSON("Entities.json"), textureManager.textures );
 }
 void Game::Draw()
 {
