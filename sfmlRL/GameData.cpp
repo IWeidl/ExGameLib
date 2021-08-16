@@ -5,6 +5,19 @@ GameData::GameData(sf::RenderWindow& gameWindow)
 {
 }
 
+GameData::~GameData()
+{
+	for (auto& entity : entities)
+	{
+		delete entity;
+	}
+	
+	for (auto& texture : textures)
+	{
+		delete texture;
+	}
+}
+
 json GameData::FileToJSON(std::string fileName)
 {
 	try {
