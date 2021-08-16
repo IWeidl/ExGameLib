@@ -1,5 +1,13 @@
 #include "TextureManager.h"
 
+TextureManager::~TextureManager()
+{
+	for (auto& texture : textures)
+	{
+		delete texture;
+	}
+}
+
 void TextureManager::LoadTextures(json jsonData)
 {
 	for (auto& el : jsonData.items())

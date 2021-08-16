@@ -5,6 +5,14 @@ EntityManager::EntityManager(sf::RenderWindow& gameWindow)
 {
 }
 
+EntityManager::~EntityManager()
+{
+	for (auto& entity : entities)
+	{
+		delete entity;
+	}
+}
+
 void EntityManager::LoadEntities(json jsonData, std::vector<sf::Texture*> textures)
 {
 	for (auto& el : jsonData.items())

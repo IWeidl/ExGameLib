@@ -8,6 +8,7 @@ using json = nlohmann::ordered_json;
 class TextureManager
 {
 public:
+	~TextureManager();
 	std::vector<sf::Texture*> textures;
 	void LoadTextures(json jsonData);
 	
