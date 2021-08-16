@@ -1,0 +1,10 @@
+{
+  "Player": {
+    "TextureID": 0,
+    "Position": [ 50, 50 ]
+  },
+  "Enemy": {
+    "TextureID": 1,
+    "Position": [200, 200]
+  }
+}
