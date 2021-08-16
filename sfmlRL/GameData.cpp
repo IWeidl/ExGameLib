@@ -67,5 +67,14 @@ void GameData::LoadTextures(json jsonData)
 
 void GameData::LoadEntities(json jsonData)
 {
-
+	for (auto& el : jsonData.items())
+	{
+		std::cout << el.key() << " <-> " << el.value() << std::endl;
+		json temp = el.value();
+		int texture = temp.at("TextureID");
+		sf::Vector2f position(temp.at("Position").at(0), temp.at("Position").at(1));
+		Entity* entity = new Entity(gameWindow, position);
+		entity->CreateSprite(*textures[texture]);
+		entities.push_back(entity);
+	}
 }
