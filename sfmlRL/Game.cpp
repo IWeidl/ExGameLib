@@ -5,6 +5,7 @@ Game::Game(sf::RenderWindow& gameWindow)
 {
 	gameData.LoadTextures(GameData::FileToJSON("Textures.json"));
 	gameData.LoadEntity(GameData::FileToJSON("Entities.json"), "Player");
+	gameData.LoadEntity(GameData::FileToJSON("Entities.json"), "Enemy");
 }
 void Game::Draw()
 {

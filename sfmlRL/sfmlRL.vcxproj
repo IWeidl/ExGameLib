@@ -156,10 +156,13 @@
     <None Include="ClassDiagram.cd" />
     <None Include="Entities.json" />
     <None Include="packages.config" />
-    <None Include="Textures.json" />
+    <None Include="Textures.json">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Downloads\player.png" />
+    <Image Include="enemy.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -70,5 +70,8 @@
     <Image Include="..\..\..\..\Downloads\player.png">
       <Filter>Resource Files\img</Filter>
     </Image>
+    <Image Include="enemy.png">
+      <Filter>Resource Files\img</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -5,12 +5,11 @@
 #include <fstream>
 #include <memory>
 
-using json = nlohmann::json;
+using json = nlohmann::ordered_json;
 class GameData
 {
 public:
 	GameData(sf::RenderWindow& gameWindow);
-	
 	static json FileToJSON(std::string fileName);
 	int LoadEntity(json object, std::string entityName);
 	void LoadTextures(json jsonData);
