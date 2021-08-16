@@ -7,8 +7,6 @@
 // We need to use ordered_json, as standard json doesn't order as per file
 using json = nlohmann::ordered_json;
 
-// TODO: Create EntityManager
-// TODO: Create TextureManager
 class GameData
 {
 public:
