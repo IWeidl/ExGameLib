@@ -11,8 +11,9 @@ class Game
 public:
 	Game(sf::RenderWindow& wnd);
 	void Draw();
-	GameData gameData;
+	void Run();
 
+	GameData gameData;
 private:
 	sf::RenderWindow& gameWindow;
 };
