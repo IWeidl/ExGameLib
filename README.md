@@ -7,7 +7,7 @@ I am using this project as a means to learn new technologies and systems. As suc
 ## Getting Started
 
 ### Installation
-You will first need SFML and nlohman JSON (links to both found below). You can include manually, but using vckpkg as you can run the below commands to install each package:
+You will first need SFML and nlohman JSON (links to both found below). You can include manually, but using vckpkg you can run the below commands to install each package:
 ```
 .\vcpkg\vcpkg install sfml
 .\vcpkg\vcpkg install nlohmann-json
