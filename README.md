@@ -43,23 +43,9 @@ Then, in the Entities.json file, create your entities following this structure:
 Finally, instert the below in to your main function:
 
 ```cpp
-sf::RenderWindow gameWindow(sf::VideoMode(800, 600), "Main Game");
-gameWindow.setFramerateLimit(60);
-Game game(gameWindow);
-
-
-while (gameWindow.isOpen())
-{
-     sf::Event event;
-     while (gameWindow.pollEvent(event))
-     {
-         if (event.type == sf::Event::Closed)
-             gameWindow.close();
-     }
-     gameWindow.clear();
-     game.Draw();
-     gameWindow.display();
-}
+    sf::RenderWindow gameWindow(sf::VideoMode(800, 600), "SFML Roguelike");
+    Game game(gameWindow);
+    game.Run();
 ```
 
 ## Future Plans
