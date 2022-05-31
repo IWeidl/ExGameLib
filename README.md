@@ -46,9 +46,6 @@ Finally, instert the below in to your main function:
     sf::RenderWindow gameWindow(sf::VideoMode(800, 600), "SFML Roguelike");
     Game game(gameWindow);
     game.Run();
-
-    return 0;
-}
 ```
 
 ## Future Plans
