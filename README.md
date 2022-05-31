@@ -15,37 +15,13 @@ You will first need SFML and nlohman JSON (links to both found below). You can i
 
 ### Usage
 
-Currently, all you can do is load sprites into a game with a specified texture and coordinates. 
+Currently, all you can do is show a window;
 
-To do this, first populate the Textures.json file with the names of the image files you want to load in:
-
-```cpp
-{
-  "Player": "player.png",
-  "Enemy": "enemy.png"
-}
-```
-
-Then, in the Entities.json file, create your entities following this structure:
+To do this, `#include "Game.h"` then insert the below in to your main function:
 
 ```cpp
-{
-  "Player": {
-    "TextureID": 0,
-    "Position": [ 50, 50 ]
-  },
-  "Enemy": {
-    "TextureID": 1,
-    "Position": [200, 200]
-  }
-}
-```
-Finally, instert the below in to your main function:
-
-```cpp
-    sf::RenderWindow gameWindow(sf::VideoMode(800, 600), "SFML Roguelike");
-    Game game(gameWindow);
-    game.Run();
+EGL::Game game;
+game.Run();
 ```
 
 ## Future Plans
