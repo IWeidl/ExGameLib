@@ -6,7 +6,11 @@ namespace EGL
 	public:
 		Game();
 		void Run();
-	protected:
+		void Update();
+		void Draw();
+	private:
 		sf::RenderWindow gameWindow;
+		sf::Clock clock;
+		int frameRate = 60;
 	};
 }

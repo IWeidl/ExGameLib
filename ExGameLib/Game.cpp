@@ -3,6 +3,7 @@
 EGL::Game::Game()
 {
 	gameWindow.create(sf::VideoMode(800, 600), "GameWindow");
+	gameWindow.setFramerateLimit(frameRate);
 }
 
 void EGL::Game::Run()
@@ -16,7 +17,17 @@ void EGL::Game::Run()
 				gameWindow.close();
 		}
 
-		gameWindow.clear();
-		gameWindow.display();
+		Update();
+		Draw();		
 	}
+}
+
+void EGL::Game::Update()
+{
+}
+
+void EGL::Game::Draw()
+{
+	gameWindow.clear();
+	gameWindow.display();
 }
