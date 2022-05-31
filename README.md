@@ -17,7 +17,7 @@ You will first need SFML and nlohman JSON (links to both found below). You can i
 
 Currently, all you can do is show a window;
 
-To do this, `#include "Game.h" then insert the below in to your main function:
+To do this, `#include "Game.h"` then insert the below in to your main function:
 
 ```cpp
 EGL::Game game;
