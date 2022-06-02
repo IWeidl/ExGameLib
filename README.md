@@ -9,13 +9,14 @@ I am using this project as a means to learn new technologies and systems. As suc
 ### Installation
 You will first need SFML and nlohman JSON (links to both found below). You can include manually, but using vckpkg you can run the below commands to install each package:
 ```
-.\vcpkg\vcpkg install sfml
-.\vcpkg\vcpkg install nlohmann-json
+vcpkg install sfml
+vcpkg install nlohmann-json
+vcpkg install entt
 ```
 
 ### Usage
 
-Currently, all you can do is show a window;
+Currently, all you can do is show a window and load some entities from a JSON file;
 
 To do this, `#include "Game.h"` then insert the below in to your main function:
 
@@ -23,6 +24,31 @@ To do this, `#include "Game.h"` then insert the below in to your main function:
 EGL::Game game;
 game.Run();
 ```
+
+Create an `entities.json` file and put in the entity attributes in similar to below:
+
+```json
+{
+  "player": {
+    "name": "Jimmy",
+    "health": 10,
+    "texture": "player.png",
+    "position": [0, 0]
+  },
+  "villager": {
+    "name": "Fred",
+    "health": 10
+  },
+  "skeleton": {
+    "health": 5,
+    "texture": "enemy.png",
+    "position":[100, 100]
+  }
+}
+```
+
+When run, the file will be loaded into the game state and the console will output all the loaded entities and their position.
+
 
 ## Future Plans
 - [ ] Implement 3rd Party Entity Component System, thinking about using enTT
