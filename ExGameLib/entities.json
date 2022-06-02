@@ -1,0 +1,13 @@
+{
+  "player": {
+    "name": "Jimmy",
+    "health": 10
+  },
+  "villager": {
+    "name": "Fred",
+    "health": 10
+  },
+  "skeleton": {
+    "health": 5
+  }
+}
