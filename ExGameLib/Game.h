@@ -4,6 +4,7 @@
 #include <entt/entt.hpp>
 #include <fstream>
 #include <iostream>
+#include "Components.h"
 using json = nlohmann::json;
 namespace EGL
 {
@@ -19,6 +20,7 @@ namespace EGL
 		int frameRate = 60;
 		float dt;
 		std::unordered_map<json, json> entities;
+		entt::registry registry;
 		void LoadEntities(std::string fileName);
 
 	};

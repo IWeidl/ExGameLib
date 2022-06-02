@@ -1,13 +1,17 @@
 {
   "player": {
     "name": "Jimmy",
-    "health": 10
+    "health": 10,
+    "texture": "player.png",
+    "position": [0, 0]
   },
   "villager": {
     "name": "Fred",
     "health": 10
   },
   "skeleton": {
-    "health": 5
+    "health": 5,
+    "texture": "enemy.png",
+    "position":[100, 100]
   }
 }

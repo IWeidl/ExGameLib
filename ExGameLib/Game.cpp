@@ -6,9 +6,12 @@ EGL::Game::Game()
 	gameWindow.setFramerateLimit(frameRate);
 
 	LoadEntities("entities.json");
-	
-	for (auto& entity : entities)
-		std::cout << entity.first << " :: " << entity.second << std::endl;
+
+	auto view = registry.view<MetaData, Position>();
+	for (auto [entity, metadata, position] : view.each())
+	{
+		std::cout << metadata.name << " at position: " << position.x << " " << position.y << std::endl;
+	}
 
 	dt = clock.getElapsedTime().asSeconds();
 }
@@ -46,6 +49,17 @@ void EGL::Game::LoadEntities(std::string fileName)
 	json entityData = json::parse(file);
 	for (auto& node : entityData.items())
 	{
-		entities.insert({ node.key(), node.value() });
+		const auto entity = registry.create();
+
+		// Save MetaData
+		registry.emplace<MetaData>(entity, node.key());
+
+		// Save Position
+		if (node.value().contains("position"))
+		{
+			json positionComponent = node.value()["position"];
+			registry.emplace<Position>(entity, positionComponent[0], positionComponent[1]);
+		}
+			
 	}
 }
