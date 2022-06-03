@@ -8,3 +8,8 @@ struct Position {
 	float x;
 	float y;
 };
+struct Graphics {
+	std::string texturePath;
+	sf::Texture texture;
+	sf::Sprite sprite;
+};

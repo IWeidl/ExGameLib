@@ -22,6 +22,7 @@ namespace EGL
 		std::unordered_map<json, json> entities;
 		entt::registry registry;
 		void LoadEntities(std::string fileName);
+		void LoadTextures();
 
 	};
 }

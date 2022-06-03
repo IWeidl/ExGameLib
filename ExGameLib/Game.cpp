@@ -6,11 +6,12 @@ EGL::Game::Game()
 	gameWindow.setFramerateLimit(frameRate);
 
 	LoadEntities("entities.json");
-
-	auto view = registry.view<MetaData, Position>();
-	for (auto [entity, metadata, position] : view.each())
+	LoadTextures();
+	// 
+	auto view = registry.view<Position, Graphics>();
+	for (auto [_entity, _position, _graphics] : view.each())
 	{
-		std::cout << metadata.name << " at position: " << position.x << " " << position.y << std::endl;
+		_graphics.sprite.setPosition(_position.x, _position.y);
 	}
 
 	dt = clock.getElapsedTime().asSeconds();
@@ -40,6 +41,13 @@ void EGL::Game::Update()
 void EGL::Game::Draw()
 {
 	gameWindow.clear();
+
+	auto view = registry.view<Graphics>();
+	for (auto [_entity, _graphics] : view.each())
+	{
+		gameWindow.draw(_graphics.sprite);
+	}
+
 	gameWindow.display();
 }
 
@@ -51,15 +59,35 @@ void EGL::Game::LoadEntities(std::string fileName)
 	{
 		const auto entity = registry.create();
 
-		// Save MetaData
+		// Load MetaData
 		registry.emplace<MetaData>(entity, node.key());
 
-		// Save Position
+		// Load Position Component
 		if (node.value().contains("position"))
 		{
 			json positionComponent = node.value()["position"];
 			registry.emplace<Position>(entity, positionComponent[0], positionComponent[1]);
 		}
+
+		// Load Graphics Component
+		if (node.value().contains("texture"))
+		{
+			std::string texturePath = node.value()["texture"];
+			sf::Texture texture;
+			sf::Sprite sprite;
+			registry.emplace<Graphics>(entity, texturePath, texture, sprite);
+		}
 			
+	}
+}
+
+void EGL::Game::LoadTextures()
+{
+	auto view = registry.view<Graphics>();
+	for (auto [_entity, _graphics] : view.each())
+	{
+		if (_graphics.texture.loadFromFile(_graphics.texturePath))
+			std::cout << "Unable to load texture from file location: " << _graphics.texturePath << std::endl;
+		_graphics.sprite.setTexture(_graphics.texture);
 	}
 }
