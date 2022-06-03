@@ -16,7 +16,7 @@ vcpkg install entt
 
 ### Usage
 
-Currently, all you can do is show a window and load some entities from a JSON file;
+Currently, you can show a window and load entities from a JSON file (including textures) onto the screen.
 
 To do this, `#include "Game.h"` then insert the below in to your main function:
 
@@ -47,14 +47,15 @@ Create an `entities.json` file and put in the entity attributes in similar to be
 }
 ```
 
-When run, the file will be loaded into the game state and the console will output all the loaded entities and their position.
-
+When run, the file will be loaded into the game state and the screen will output the entities at the correct with position with the correct texture.
+Provided the image file is reachable, the sprites will be shown on the screen.
+![](/Assets/example_screenshot1.png)
 
 ## Future Plans
-- [ ] Implement 3rd Party Entity Component System, thinking about using enTT
 - [ ] Implement ChaiScript as game scripting language
 - [ ] Replace SFML with lower level graphics implementation, OpenGL most likely
 
 ## Libraries Used
 - Lohmann N. JSON for Modern C++ (version 3.9.1). URL: https://github.com/nlohmann/json
 - SFML - Simple and Fast Multimedia Library (version 2.5.1). URL: https://www.sfml-dev.org/index.php
+- ENTT (version 3.8.0). URL: https://github.com/skypjack/entt
