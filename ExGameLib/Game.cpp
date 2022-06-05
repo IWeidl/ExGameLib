@@ -2,53 +2,18 @@
 
 EGL::Game::Game()
 {
-	gameWindow.create(sf::VideoMode(800, 600), "GameWindow");
-	gameWindow.setFramerateLimit(frameRate);
-
+	InitializeWindow();
 	LoadEntities("entities.json");
 	LoadTextures();
-	// 
-	auto view = registry.view<Position, Graphics>();
-	for (auto [_entity, _position, _graphics] : view.each())
-	{
-		_graphics.sprite.setPosition(_position.x, _position.y);
-	}
 
 	dt = clock.getElapsedTime().asSeconds();
+	Run();
 }
 
-void EGL::Game::Run()
+void EGL::Game::InitializeWindow()
 {
-	while (gameWindow.isOpen())
-	{
-		sf::Event event;
-		while (gameWindow.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				gameWindow.close();
-		}
-		dt = clock.getElapsedTime().asSeconds();
-		clock.restart();
-		Update();
-		Draw();		
-	}
-}
-
-void EGL::Game::Update()
-{
-}
-
-void EGL::Game::Draw()
-{
-	gameWindow.clear();
-
-	auto view = registry.view<Graphics>();
-	for (auto [_entity, _graphics] : view.each())
-	{
-		gameWindow.draw(_graphics.sprite);
-	}
-
-	gameWindow.display();
+	gameWindow.create(sf::VideoMode(800, 600), "GameWindow");
+	gameWindow.setFramerateLimit(frameRate);
 }
 
 void EGL::Game::LoadEntities(std::string fileName)
@@ -77,7 +42,7 @@ void EGL::Game::LoadEntities(std::string fileName)
 			sf::Sprite sprite;
 			registry.emplace<Graphics>(entity, texturePath, texture, sprite);
 		}
-			
+
 	}
 }
 
@@ -86,8 +51,52 @@ void EGL::Game::LoadTextures()
 	auto view = registry.view<Graphics>();
 	for (auto [_entity, _graphics] : view.each())
 	{
-		if (_graphics.texture.loadFromFile(_graphics.texturePath))
+		if (!_graphics.texture.loadFromFile(_graphics.texturePath))
 			std::cout << "Unable to load texture from file location: " << _graphics.texturePath << std::endl;
 		_graphics.sprite.setTexture(_graphics.texture);
 	}
 }
+void EGL::Game::Run()
+{
+	while (gameWindow.isOpen())
+	{
+		sf::Event event;
+		while (gameWindow.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				gameWindow.close();
+		}
+		dt = clock.getElapsedTime().asSeconds();
+		clock.restart();
+		Update();
+		Draw();		
+	}
+}
+
+void EGL::Game::Update()
+{
+	UpdateEntityPositions();
+}
+
+void EGL::Game::UpdateEntityPositions()
+{
+	auto view = registry.view<Position, Graphics>();
+	for (auto [_entity, _position, _graphics] : view.each())
+	{
+		_graphics.sprite.setPosition(_position.x, _position.y);
+	}
+}
+
+void EGL::Game::Draw()
+{
+	gameWindow.clear();
+
+	auto view = registry.view<Graphics>();
+	for (auto [_entity, _graphics] : view.each())
+	{
+		gameWindow.draw(_graphics.sprite);
+	}
+
+	gameWindow.display();
+}
+

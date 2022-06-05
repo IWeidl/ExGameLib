@@ -10,15 +10,19 @@ namespace EGL
 {
 	class Game {
 	public:
-		Game();
+		Game();	
+
 		void Run();
-		
 	private:
 		sf::RenderWindow gameWindow;
 		sf::Clock clock;
 		int frameRate = 60;
 		float dt;
 		entt::registry registry;
+		/// <summary>
+		/// Creates the gameWindow and sets basic properties;
+		/// </summary>
+		void InitializeWindow();
 		/// <summary>
 		/// Loads all the entities and their components from a file and adds them to the ECS registry.
 		/// </summary>
@@ -28,7 +32,17 @@ namespace EGL
 		/// For each Graphics component, load the texture from the texturePath field and then allocate that to the sprite.
 		/// </summary>
 		void LoadTextures();
+		/// <summary>
+		/// Called every frame, this is where all update logic should be.
+		/// </summary>
 		void Update();
+		/// <summary>
+		/// Updates the sprite position of all entities with components: Position, Graphics
+		/// </summary>
+		void UpdateEntityPositions();
+		/// <summary>
+		/// Called every frame AFTER update, all draw calls are done here. 
+		/// </summary>
 		void Draw();
 	};
 }
