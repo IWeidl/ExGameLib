@@ -1,6 +1,6 @@
 # ExGameLib
 
-Game Engine written in C++ with SFML.
+Game Engine written in C++ with SFML and ENTT.
 
 I am using this project as a means to learn new technologies and systems. As such, the code is constantly being refactored and played with. 
 
@@ -22,7 +22,6 @@ To do this, `#include "Game.h"` then insert the below in to your main function:
 
 ```cpp
 EGL::Game game;
-game.Run();
 ```
 
 Create an `entities.json` file and put in the entity attributes in similar to below:
