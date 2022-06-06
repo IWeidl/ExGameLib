@@ -22,7 +22,6 @@ To do this, `#include "Game.h"` then insert the below in to your main function:
 
 ```cpp
 EGL::Game game;
-game.Run();
 ```
 
 Create an `entities.json` file and put in the entity attributes in similar to below:
