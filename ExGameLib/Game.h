@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include "Components.h"
+#include "Toolbox.h"
 using json = nlohmann::json;
 namespace EGL
 {

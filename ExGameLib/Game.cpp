@@ -47,10 +47,12 @@ void EGL::Game::LoadEntities(std::string fileName)
 		if (node.value().contains("inputs"))
 		{
 			json inputComponent = node.value()["inputs"];
-			std::unordered_map<sf::Keyboard, std::string> actions;
+			std::unordered_map<sf::Keyboard::Key, std::string> actions;
 			for (auto& input : inputComponent.items())
 			{
+				actions.insert({ StringKeyboardKeyPairs.at(input.key()), input.value()});
 			}
+			registry.emplace<Input>(entity, actions);
 		}
 	}
 }
