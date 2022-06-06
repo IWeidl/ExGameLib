@@ -24,7 +24,7 @@ void EGL::Game::LoadEntities(std::string fileName)
 	{
 		const auto entity = registry.create();
 
-		// Load MetaData
+		// Load MetaData Components
 		registry.emplace<MetaData>(entity, node.key());
 
 		// Load Position Components
@@ -76,6 +76,9 @@ void EGL::Game::Run()
 		{
 			if (event.type == sf::Event::Closed)
 				gameWindow.close();
+			else if (event.type == sf::Event::KeyPressed)
+				ProcessInputs(event);
+				
 		}
 		dt = clock.getElapsedTime().asSeconds();
 		clock.restart();
@@ -98,8 +101,16 @@ void EGL::Game::UpdateEntityPositions()
 	}
 }
 
-void EGL::Game::ProcessInputs()
+void EGL::Game::ProcessInputs(sf::Event keyEvent)
 {
+	auto view = registry.view<Input>();
+	for (auto [_entity, _input] : view.each())
+	{
+		if (_input.actions.find(keyEvent.key.code) != _input.actions.end())
+		{
+			std::cout << _input.actions[keyEvent.key.code] << std::endl;
+		}
+	}
 }
 
 void EGL::Game::Draw()

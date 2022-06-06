@@ -44,7 +44,7 @@ namespace EGL
 		/// Updates the sprite position of all entities with components: Position, Graphics
 		/// </summary>
 		void UpdateEntityPositions();
-		void ProcessInputs();
+		void ProcessInputs(sf::Event keyEvent);
 		/// <summary>
 		/// Called every frame AFTER update, all draw calls are done here. 
 		/// </summary>

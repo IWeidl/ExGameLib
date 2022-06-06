@@ -14,5 +14,5 @@ struct Graphics {
 	sf::Sprite sprite;
 };
 struct Input {
-	std::unordered_map<sf::Keyboard, std::string> actions;
+	std::unordered_map<sf::Keyboard::Key, std::string> actions;
 };
