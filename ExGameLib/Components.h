@@ -13,3 +13,6 @@ struct Graphics {
 	sf::Texture texture;
 	sf::Sprite sprite;
 };
+struct Input {
+	std::unordered_map<sf::Keyboard, std::string> actions;
+};

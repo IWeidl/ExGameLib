@@ -27,14 +27,14 @@ void EGL::Game::LoadEntities(std::string fileName)
 		// Load MetaData
 		registry.emplace<MetaData>(entity, node.key());
 
-		// Load Position Component
+		// Load Position Components
 		if (node.value().contains("position"))
 		{
 			json positionComponent = node.value()["position"];
 			registry.emplace<Position>(entity, positionComponent[0], positionComponent[1]);
 		}
 
-		// Load Graphics Component
+		// Load Graphics Components
 		if (node.value().contains("texture"))
 		{
 			std::string texturePath = node.value()["texture"];
@@ -43,6 +43,15 @@ void EGL::Game::LoadEntities(std::string fileName)
 			registry.emplace<Graphics>(entity, texturePath, texture, sprite);
 		}
 
+		// Load Input Components
+		if (node.value().contains("inputs"))
+		{
+			json inputComponent = node.value()["inputs"];
+			std::unordered_map<sf::Keyboard, std::string> actions;
+			for (auto& input : inputComponent.items())
+			{
+			}
+		}
 	}
 }
 
@@ -85,6 +94,10 @@ void EGL::Game::UpdateEntityPositions()
 	{
 		_graphics.sprite.setPosition(_position.x, _position.y);
 	}
+}
+
+void EGL::Game::ProcessInputs()
+{
 }
 
 void EGL::Game::Draw()

@@ -11,8 +11,7 @@ namespace EGL
 	class Game {
 	public:
 		Game();	
-
-		void Run();
+		
 	private:
 		sf::RenderWindow gameWindow;
 		sf::Clock clock;
@@ -33,6 +32,10 @@ namespace EGL
 		/// </summary>
 		void LoadTextures();
 		/// <summary>
+		/// Begins the actual game loop, calling Update() then Draw() every frame.
+		/// </summary>
+		void Run();
+		/// <summary>
 		/// Called every frame, this is where all update logic should be.
 		/// </summary>
 		void Update();
@@ -40,9 +43,10 @@ namespace EGL
 		/// Updates the sprite position of all entities with components: Position, Graphics
 		/// </summary>
 		void UpdateEntityPositions();
+		void ProcessInputs();
 		/// <summary>
 		/// Called every frame AFTER update, all draw calls are done here. 
 		/// </summary>
-		void Draw();
+		void Draw();		
 	};
 }

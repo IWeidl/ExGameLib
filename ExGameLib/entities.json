@@ -3,7 +3,13 @@
     "name": "Jimmy",
     "health": 10,
     "texture": "player.png",
-    "position": [0, 0]
+    "position": [ 0, 0 ],
+    "inputs": {
+      "w": "moveUp",
+      "s": "moveDown",
+      "a": "moveLeft",
+      "d": "moveRight"
+    }
   },
   "villager": {
     "name": "Fred",
