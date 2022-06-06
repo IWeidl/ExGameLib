@@ -44,6 +44,11 @@ namespace EGL
 		/// Updates the sprite position of all entities with components: Position, Graphics
 		/// </summary>
 		void UpdateEntityPositions();
+		/// <summary>
+		/// Called whenever a Keypress occurs, this checks if the keypress is 'used' by an entity and if so 
+		/// [PLANNED] calls the associated ChaiScript function
+		/// </summary>
+		/// <param name="keyEvent"></param>
 		void ProcessInputs(sf::Event keyEvent);
 		/// <summary>
 		/// Called every frame AFTER update, all draw calls are done here. 
