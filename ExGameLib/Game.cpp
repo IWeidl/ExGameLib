@@ -19,7 +19,7 @@ void EGL::Game::InitializeWindow()
 void EGL::Game::LoadEntities(std::string fileName)
 {
 	std::ifstream file(fileName);
-	json entityData = json::parse(file);
+	_json entityData = _json::parse(file);
 	for (auto& node : entityData.items())
 	{
 		const auto entity = registry.create();
@@ -30,7 +30,7 @@ void EGL::Game::LoadEntities(std::string fileName)
 		// Load Position Components
 		if (node.value().contains("position"))
 		{
-			json positionComponent = node.value()["position"];
+			_json positionComponent = node.value()["position"];
 			registry.emplace<Position>(entity, positionComponent[0], positionComponent[1]);
 		}
 
@@ -46,7 +46,7 @@ void EGL::Game::LoadEntities(std::string fileName)
 		// Load Input Components
 		if (node.value().contains("inputs"))
 		{
-			json inputComponent = node.value()["inputs"];
+			_json inputComponent = node.value()["inputs"];
 			std::unordered_map<sf::Keyboard::Key, std::string> actions;
 			for (auto& input : inputComponent.items())
 			{
