@@ -9,10 +9,12 @@ namespace EGL {
 	{
 	public:
 		ScriptManager(entt::registry& registry);
+		
 	private:
 		chaiscript::ChaiScript chai;
 		entt::registry& registry;
 		std::unordered_map<std::string, std::string> scripts;
+		void LoadFunctions();
 
 		// Functions to be bound to chaiscript, prepended with "s_"
 		void s_Move(const std::string& entityName, const float& x, const float& y);
