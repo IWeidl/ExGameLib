@@ -19,6 +19,7 @@ void EGL::ScriptManager::ExecuteSnippet(std::string snippet)
 
 void EGL::ScriptManager::LoadFunctions()
 {
+	chai.add(chaiscript::var(this), "script");
 	chai.add(chaiscript::fun(&ScriptManager::s_Move), "Move");
 }
 
