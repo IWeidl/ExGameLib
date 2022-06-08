@@ -66,6 +66,7 @@ void EGL::Game::LoadTextures()
 		if (!_graphics.texture.loadFromFile(_graphics.texturePath))
 			std::cout << "Unable to load texture from file location: " << _graphics.texturePath << std::endl;
 		_graphics.sprite.setTexture(_graphics.texture);
+		_graphics.sprite.setOrigin(_graphics.sprite.getLocalBounds().width / 2, _graphics.sprite.getLocalBounds().height / 2);
 	}
 }
 void EGL::Game::Run()

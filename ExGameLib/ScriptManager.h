@@ -42,6 +42,12 @@ namespace EGL {
 		/// </summary>
 		/// <param name="entityName"></param>
 		void s_DeleteEntity(const std::string& entityName);
+		/// <summary>
+		/// Rotates an entity by x degrees.
+		/// </summary>
+		/// <param name="entityName"></param>
+		/// <param name="angle"></param>
+		void s_RotateEntity(const std::string& entityName, const float& angle);
 	};
 
 }
