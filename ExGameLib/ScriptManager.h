@@ -19,8 +19,19 @@ namespace EGL {
 		/// </summary>
 		void LoadFunctions();
 
-		// Functions to be bound to chaiscript, prepended with "s_"
+		/*
+		* Functions to be bound to chaiscript, prepended with "s_"
+		*/
+
+		/// <summary>
+		/// Moves an entity by x and y.
+		/// </summary>
+		/// <param name="entityName"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
 		void s_Move(const std::string& entityName, const float& x, const float& y);
+		void s_SetPos(const std::string& entityName, const float& x, const float& y);
+		void s_DeleteEntity(const std::string& entityName);
 	};
 
 }

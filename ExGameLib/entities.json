@@ -8,7 +8,9 @@
       "w": "script.Move(\"player\", 0, -5);",
       "s": "script.Move(\"player\", 0, 5);",
       "a": "script.Move(\"player\", -5, 0);",
-      "d": "script.Move(\"player\", 5, 0);"
+      "d": "script.Move(\"player\", 5, 0);",
+      "r": "script.SetPos(\"player\", 0, 0);",
+      "q": "script.Delete(\"skeleton\");"
     }
   },
   "villager": {

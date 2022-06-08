@@ -21,6 +21,8 @@ void EGL::ScriptManager::LoadFunctions()
 {
 	chai.add(chaiscript::var(this), "script");
 	chai.add(chaiscript::fun(&ScriptManager::s_Move), "Move");
+	chai.add(chaiscript::fun(&ScriptManager::s_SetPos), "SetPos");
+	chai.add(chaiscript::fun(&ScriptManager::s_DeleteEntity), "Delete");
 }
 
 void EGL::ScriptManager::s_Move(const std::string& entityName, const float& x, const float& y)
@@ -33,5 +35,28 @@ void EGL::ScriptManager::s_Move(const std::string& entityName, const float& x, c
 			_position.x += x;
 			_position.y += y;
 		}
+	}
+}
+
+void EGL::ScriptManager::s_SetPos(const std::string& entityName, const float& x, const float& y)
+{
+	auto view = registry.view<MetaData, Position>();
+	for (auto [_entity, _metadata, _position] : view.each())
+	{
+		if (_metadata.name == entityName)
+		{
+			_position.x = x;
+			_position.y = y;
+		}
+	}
+}
+
+void EGL::ScriptManager::s_DeleteEntity(const std::string& entityName)
+{
+	auto view = registry.view<MetaData>();
+	for (auto [_entity, _metadata] : view.each())
+	{
+		if (_metadata.name == entityName)
+			registry.destroy(_entity);
 	}
 }
