@@ -27,6 +27,7 @@ void EGL::ScriptManager::LoadFunctions()
 	chai.add(chaiscript::fun(&ScriptManager::s_SetPos), "SetPos");
 	chai.add(chaiscript::fun(&ScriptManager::s_DeleteEntity), "Delete");
 	chai.add(chaiscript::fun(&ScriptManager::s_RotateEntity), "Rotate");
+	chai.add(chaiscript::fun(&ScriptManager::s_AddPositionComponent), "AddPositionComponent");
 }
 
 void EGL::ScriptManager::LoadComponents()
@@ -81,6 +82,18 @@ void EGL::ScriptManager::s_RotateEntity(const std::string& entityName, const flo
 		if (_metadata.name == entityName)
 		{
 			_graphics.sprite.rotate(angle);
+		}
+	}
+}
+
+void EGL::ScriptManager::s_AddPositionComponent(const std::string& entityName, const float& x = 0, const float& y = 0)
+{
+	auto view = registry.view<MetaData>();
+	for (auto [_entity, _metadata] : view.each())
+	{
+		if (_metadata.name == entityName)
+		{
+			registry.emplace_or_replace<Position>(_entity, x, y);
 		}
 	}
 }

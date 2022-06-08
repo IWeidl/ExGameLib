@@ -49,6 +49,14 @@ namespace EGL {
 		/// <param name="entityName"></param>
 		/// <param name="angle"></param>
 		void s_RotateEntity(const std::string& entityName, const float& angle);
+		/// <summary>
+		/// Adds the Position Component to the specified entity.
+		/// If this entity already has this component, it will be replaced with this new component. 
+		/// </summary>
+		/// <param name="entityName"></param>
+		/// <param name="x">Initial x value of Position component</param>
+		/// <param name="y">Initial y value of Position component</param>
+		void s_AddPositionComponent(const std::string& entityName, const float& x, const float& y);
 	};
 
 }
