@@ -1,6 +1,7 @@
 #include "Game.h"
 
 EGL::Game::Game()
+	: scriptManager(registry)
 {
 	InitializeWindow();
 	LoadEntities("entities.json");
@@ -108,7 +109,7 @@ void EGL::Game::ProcessInputs(sf::Event keyEvent)
 	{
 		if (_input.actions.find(keyEvent.key.code) != _input.actions.end())
 		{
-			std::cout << _input.actions[keyEvent.key.code] << std::endl;
+			scriptManager.ExecuteSnippet(_input.actions[keyEvent.key.code]);
 		}
 	}
 }

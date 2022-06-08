@@ -6,6 +6,17 @@ EGL::ScriptManager::ScriptManager(entt::registry& registry)
 	LoadFunctions();
 }
 
+void EGL::ScriptManager::ExecuteSnippet(std::string snippet)
+{
+	try {
+		chai.eval(snippet);
+	}
+	catch (std::exception e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
 void EGL::ScriptManager::LoadFunctions()
 {
 	chai.add(chaiscript::fun(&ScriptManager::s_Move), "Move");

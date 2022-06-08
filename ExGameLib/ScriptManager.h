@@ -9,7 +9,7 @@ namespace EGL {
 	{
 	public:
 		ScriptManager(entt::registry& registry);
-		
+		void ExecuteSnippet(std::string snippet);	
 	private:
 		chaiscript::ChaiScript chai;
 		entt::registry& registry;

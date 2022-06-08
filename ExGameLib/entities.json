@@ -5,10 +5,10 @@
     "texture": "player.png",
     "position": [ 0, 0 ],
     "inputs": {
-      "w": "moveUp",
-      "s": "moveDown",
-      "a": "moveLeft",
-      "d": "moveRight"
+      "w": "Move(\"player\", 0, -1);",
+      "s": "Move(\"player\", 0, 1);",
+      "a": "Move(\"player\", -1, 0);",
+      "d": "Move(\"player\", 1, 0);"
     }
   },
   "villager": {

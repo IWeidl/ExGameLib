@@ -19,7 +19,7 @@ namespace EGL
 		sf::Clock clock;
 		int frameRate = 60;
 		float dt;
-		//chaiscript::ChaiScript chai;
+		ScriptManager scriptManager;
 		entt::registry registry;
 		/// <summary>
 		/// Creates the gameWindow and sets basic properties;
