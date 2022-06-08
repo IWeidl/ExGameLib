@@ -5,7 +5,6 @@
 #include <chaiscript/chaiscript.hpp>
 #include <fstream>
 #include <iostream>
-#include "Components.h"
 #include "Toolbox.h"
 #include "ScriptManager.h"
 using _json = nlohmann::json;

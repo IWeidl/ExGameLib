@@ -1,6 +1,11 @@
 #include "ScriptManager.h"
 
-ScriptManager::ScriptManager(entt::registry& registry)
+EGL::ScriptManager::ScriptManager(entt::registry& registry)
 	: registry(registry)
 {
+}
+
+void EGL::ScriptManager::s_Move(const std::string& entityName, const float& x, const float& y)
+{
+	
 }
