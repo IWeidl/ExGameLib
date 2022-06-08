@@ -13,7 +13,10 @@ namespace EGL {
 	private:
 		chaiscript::ChaiScript chai;
 		entt::registry& registry;
-		std::unordered_map<std::string, std::string> scripts;
+
+		/// <summary>
+		/// Called in the constructor, this loads all the "s_*" functions into the Chaiscript instance.
+		/// </summary>
 		void LoadFunctions();
 
 		// Functions to be bound to chaiscript, prepended with "s_"
