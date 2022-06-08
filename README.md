@@ -16,7 +16,7 @@ vcpkg install entt
 
 ### Usage
 
-Currently, you can show a window and load entities from a JSON file (including textures) onto the screen.
+Currently, you can show a window, load entities from a JSON file (including textures) onto the screen, and move them around with custom input mapping.
 
 To do this, `#include "Game.h"` then insert the below in to your main function:
 
@@ -25,14 +25,20 @@ EGL::Game game;
 ```
 
 Create an `entities.json` file and put in the entity attributes in similar to below:
-
+*You will need to ensure the referenced texture files are present.*
 ```json
 {
   "player": {
     "name": "Jimmy",
     "health": 10,
     "texture": "player.png",
-    "position": [0, 0]
+    "position": [ 0, 0 ],
+    "inputs": {
+      "w": "script.Move(\"player\", 0, -5);",
+      "s": "script.Move(\"player\", 0, 5);",
+      "a": "script.Move(\"player\", -5, 0);",
+      "d": "script.Move(\"player\", 5, 0);"
+    }
   },
   "villager": {
     "name": "Fred",
@@ -51,7 +57,6 @@ Provided the image file is reachable, the sprites will be shown on the screen.
 ![](/Assets/example_screenshot1.png)
 
 ## Future Plans
-- [ ] Implement ChaiScript as game scripting language
 - [ ] Replace SFML with lower level graphics implementation, OpenGL most likely
 
 ## Libraries Used
