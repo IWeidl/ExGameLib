@@ -5,10 +5,10 @@
     "texture": "player.png",
     "position": [ 0, 0 ],
     "inputs": {
-      "w": "moveUp",
-      "s": "moveDown",
-      "a": "moveLeft",
-      "d": "moveRight"
+      "w": "script.Move(\"player\", 0, -5);",
+      "s": "script.Move(\"player\", 0, 5);",
+      "a": "script.Move(\"player\", -5, 0);",
+      "d": "script.Move(\"player\", 5, 0);"
     }
   },
   "villager": {

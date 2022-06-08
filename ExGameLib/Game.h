@@ -2,11 +2,12 @@
 #include <SFML/Graphics.hpp>
 #include <nlohmann/json.hpp>
 #include <entt/entt.hpp>
+#include <chaiscript/chaiscript.hpp>
 #include <fstream>
 #include <iostream>
-#include "Components.h"
 #include "Toolbox.h"
-using json = nlohmann::json;
+#include "ScriptManager.h"
+using _json = nlohmann::json;
 namespace EGL
 {
 	class Game {
@@ -18,6 +19,7 @@ namespace EGL
 		sf::Clock clock;
 		int frameRate = 60;
 		float dt;
+		ScriptManager scriptManager;
 		entt::registry registry;
 		/// <summary>
 		/// Creates the gameWindow and sets basic properties;
