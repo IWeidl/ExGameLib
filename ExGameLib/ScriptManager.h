@@ -2,6 +2,7 @@
 #include "Components.h"
 #include <chaiscript/chaiscript.hpp>
 #include <entt/entt.hpp>
+#include <initializer_list>
 
 namespace EGL {
 
@@ -18,7 +19,7 @@ namespace EGL {
 		/// Called in the constructor, this loads all the "s_*" functions into the Chaiscript instance.
 		/// </summary>
 		void LoadFunctions();
-
+		void LoadComponents();
 		/*
 		* Functions to be bound to chaiscript, prepended with "s_"
 		*/

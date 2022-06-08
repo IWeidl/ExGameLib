@@ -3,6 +3,7 @@
 EGL::ScriptManager::ScriptManager(entt::registry& registry)
 	: registry(registry)
 {
+	LoadComponents();
 	LoadFunctions();
 }
 
@@ -19,11 +20,21 @@ void EGL::ScriptManager::ExecuteSnippet(std::string snippet)
 
 void EGL::ScriptManager::LoadFunctions()
 {
+	// EGL Class
 	chai.add(chaiscript::var(this), "EGL");
+
 	chai.add(chaiscript::fun(&ScriptManager::s_Move), "Move");
 	chai.add(chaiscript::fun(&ScriptManager::s_SetPos), "SetPos");
 	chai.add(chaiscript::fun(&ScriptManager::s_DeleteEntity), "Delete");
 	chai.add(chaiscript::fun(&ScriptManager::s_RotateEntity), "Rotate");
+}
+
+void EGL::ScriptManager::LoadComponents()
+{
+	chai.add(chaiscript::user_type<MetaData>(), "MetaData");
+	chai.add(chaiscript::user_type<Position>(), "Position");
+	chai.add(chaiscript::user_type<Graphics>(), "Graphics");
+	chai.add(chaiscript::user_type<Input>(), "Input");
 }
 
 void EGL::ScriptManager::s_Move(const std::string& entityName, const float& x, const float& y)
