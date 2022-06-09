@@ -34,10 +34,15 @@ Create an `entities.json` file and put in the entity attributes in similar to be
     "texture": "player.png",
     "position": [ 0, 0 ],
     "inputs": {
-      "w": "script.Move(\"player\", 0, -5);",
-      "s": "script.Move(\"player\", 0, 5);",
-      "a": "script.Move(\"player\", -5, 0);",
-      "d": "script.Move(\"player\", 5, 0);"
+      "w": "EGL.Move(\"player\", 0, -5);",
+      "s": "EGL.Move(\"player\", 0, 5);",
+      "a": "EGL.Move(\"player\", -5, 0);",
+      "d": "EGL.Move(\"player\", 5, 0);",
+      "r": "EGL.SetPos(\"player\", 0, 0);",
+      "t": "EGL.Delete(\"skeleton\");",
+      "q": "EGL.Rotate(\"player\", -5);",
+      "e": "EGL.Rotate(\"player\", 5);",
+      "p": "EGL.AddPositionComponent(\"player\", 0, 0);" 
     }
   },
   "villager": {
@@ -52,9 +57,9 @@ Create an `entities.json` file and put in the entity attributes in similar to be
 }
 ```
 
-When run, the file will be loaded into the game state and the screen will output the entities at the correct with position with the correct texture.
-Provided the image file is reachable, the sprites will be shown on the screen.
-![](Assets/example_input1.gif)
+When run, the file will be loaded into the game state and the screen will output the entities at the correct with position with the correct texture. The entities can then be moved, rotated, and modified, depending on the player input. 
+
+![](Assets/example1.gif)
 
 ## Future Plans
 - [ ] Replace SFML with lower level graphics implementation, OpenGL most likely
