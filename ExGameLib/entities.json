@@ -5,10 +5,15 @@
     "texture": "player.png",
     "position": [ 0, 0 ],
     "inputs": {
-      "w": "script.Move(\"player\", 0, -5);",
-      "s": "script.Move(\"player\", 0, 5);",
-      "a": "script.Move(\"player\", -5, 0);",
-      "d": "script.Move(\"player\", 5, 0);"
+      "w": "EGL.Move(\"player\", 0, -5);",
+      "s": "EGL.Move(\"player\", 0, 5);",
+      "a": "EGL.Move(\"player\", -5, 0);",
+      "d": "EGL.Move(\"player\", 5, 0);",
+      "r": "EGL.SetPos(\"player\", 0, 0);",
+      "t": "EGL.Delete(\"skeleton\");",
+      "q": "EGL.Rotate(\"player\", -5);",
+      "e": "EGL.Rotate(\"player\", 5);",
+      "p": "EGL.AddPositionComponent(\"player\", 0, 0);" 
     }
   },
   "villager": {
