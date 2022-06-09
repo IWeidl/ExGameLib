@@ -86,8 +86,7 @@ void EGL::Game::Run()
 				
 		}
 		dt = clock.getElapsedTime().asSeconds();
-		clock.restart();
-		ProcessInputs();
+		clock.restart();		
 		Update();
 		Draw();		
 	}
@@ -95,6 +94,7 @@ void EGL::Game::Run()
 
 void EGL::Game::Update()
 {
+	ProcessInputs();
 	UpdateEntityPositions();
 }
 
@@ -109,10 +109,12 @@ void EGL::Game::UpdateEntityPositions()
 
 void EGL::Game::ProcessInputs()
 {
+	// Loop through all currently bound keys.
 	for (auto key : keyActionMap)
 	{
 		if (sf::Keyboard::isKeyPressed(key.first))
 		{
+			// Execute all actions bound to this key.
 			for (auto action : key.second)
 				scriptManager.ExecuteSnippet(action);
 		}
