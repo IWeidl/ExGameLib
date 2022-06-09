@@ -21,6 +21,7 @@ namespace EGL
 		float dt;
 		ScriptManager scriptManager;
 		entt::registry registry;
+		std::unordered_map<sf::Keyboard::Key, std::vector<std::string>> keyActionMap;
 		/// <summary>
 		/// Creates the gameWindow and sets basic properties;
 		/// </summary>
@@ -51,7 +52,7 @@ namespace EGL
 		/// [PLANNED] calls the associated ChaiScript function
 		/// </summary>
 		/// <param name="keyEvent"></param>
-		void ProcessInputs(sf::Event keyEvent);
+		void ProcessInputs();
 		/// <summary>
 		/// Called every frame AFTER update, all draw calls are done here. 
 		/// </summary>

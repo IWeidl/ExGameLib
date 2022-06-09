@@ -51,7 +51,11 @@ void EGL::Game::LoadEntities(std::string fileName)
 			std::unordered_map<sf::Keyboard::Key, std::string> actions;
 			for (auto& input : inputComponent.items())
 			{
-				actions.insert({ StringKeyboardKeyPairs.at(input.key()), input.value()});
+				sf::Keyboard::Key key = StringKeyboardKeyPairs.at(input.key());
+				actions.insert({ key, input.value()});
+				if (!keyActionMap.contains(key))
+					keyActionMap.insert({ key, std::vector<std::string>() });
+				keyActionMap[key].push_back(input.value());
 			}
 			registry.emplace<Input>(entity, actions);
 		}
@@ -78,12 +82,12 @@ void EGL::Game::Run()
 		{
 			if (event.type == sf::Event::Closed)
 				gameWindow.close();
-			else if (event.type == sf::Event::KeyPressed)
-				ProcessInputs(event);
+				
 				
 		}
 		dt = clock.getElapsedTime().asSeconds();
 		clock.restart();
+		ProcessInputs();
 		Update();
 		Draw();		
 	}
@@ -103,15 +107,16 @@ void EGL::Game::UpdateEntityPositions()
 	}
 }
 
-void EGL::Game::ProcessInputs(sf::Event keyEvent)
+void EGL::Game::ProcessInputs()
 {
-	auto view = registry.view<Input>();
-	for (auto [_entity, _input] : view.each())
+	for (auto key : keyActionMap)
 	{
-		if (_input.actions.find(keyEvent.key.code) != _input.actions.end())
+		if (sf::Keyboard::isKeyPressed(key.first))
 		{
-			scriptManager.ExecuteSnippet(_input.actions[keyEvent.key.code]);
+			for (auto action : key.second)
+				scriptManager.ExecuteSnippet(action);
 		}
+		
 	}
 }
 
