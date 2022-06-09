@@ -15,12 +15,29 @@ namespace EGL
 		Game();	
 		
 	private:
+		/// <summary>
+		/// Our SFML window that we draw to.
+		/// </summary>
 		sf::RenderWindow gameWindow;
+		/// <summary>
+		/// [NOT IMPLEMENTED]
+		/// Our clock used for tracking dt.
+		/// </summary>
 		sf::Clock clock;
 		int frameRate = 60;
 		float dt;
+		/// <summary>
+		/// Handles all our scripts, what we use to create, load, and execute our scripts.
+		/// </summary>
 		ScriptManager scriptManager;
+		/// <summary>
+		/// Contains all our entity data, used extensively every frame.
+		/// </summary>
 		entt::registry registry;
+		/// <summary>
+		/// Keeps track of all actions linked to every input. 
+		/// </summary>
+		std::unordered_map<sf::Keyboard::Key, std::vector<std::string>> keyActionMap;
 		/// <summary>
 		/// Creates the gameWindow and sets basic properties;
 		/// </summary>
@@ -51,7 +68,7 @@ namespace EGL
 		/// [PLANNED] calls the associated ChaiScript function
 		/// </summary>
 		/// <param name="keyEvent"></param>
-		void ProcessInputs(sf::Event keyEvent);
+		void ProcessInputs();
 		/// <summary>
 		/// Called every frame AFTER update, all draw calls are done here. 
 		/// </summary>
