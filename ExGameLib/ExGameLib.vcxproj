@@ -147,6 +147,7 @@
       <DeploymentContent>true</DeploymentContent>
     </None>
     <None Include="packages.config" />
+    <None Include="settings.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="enemy.png" />

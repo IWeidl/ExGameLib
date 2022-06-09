@@ -3,7 +3,7 @@
 EGL::Game::Game()
 	: scriptManager(registry)
 {
-	InitializeWindow();
+	LoadSettings();
 	LoadEntities("entities.json");
 	LoadTextures();
 
@@ -11,9 +11,26 @@ EGL::Game::Game()
 	Run();
 }
 
-void EGL::Game::InitializeWindow()
+void EGL::Game::LoadSettings()
 {
-	gameWindow.create(sf::VideoMode(800, 600), "GameWindow");
+	// Default Settings
+	sf::Vector2i resolution = { 800, 600 };
+
+
+	std::ifstream file("settings.json");
+	_json settingData = _json::parse(file);
+
+	for (auto& node : settingData.items())
+	{
+		if (node.value().contains("resolution"))
+			resolution = { node.value()["resolution"][0], node.value()["resolution"][1]};
+	}
+	InitializeWindow(resolution);
+}
+
+void EGL::Game::InitializeWindow(sf::Vector2i resolution)
+{
+	gameWindow.create(sf::VideoMode(resolution.x, resolution.y), "GameWindow");
 	gameWindow.setFramerateLimit(frameRate);
 }
 
