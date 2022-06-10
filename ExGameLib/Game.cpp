@@ -15,7 +15,7 @@ void EGL::Game::LoadSettings()
 {
 	// Default Settings
 	sf::Vector2i resolution = { 800, 600 };
-
+	int framerate = 60;
 
 	std::ifstream file("settings.json");
 	_json settingData = _json::parse(file);
@@ -24,14 +24,18 @@ void EGL::Game::LoadSettings()
 	{
 		if (node.value().contains("resolution"))
 			resolution = { node.value()["resolution"][0], node.value()["resolution"][1]};
+
+		if (node.value().contains("framerate"))
+			framerate = node.value()["framerate"];
+
 	}
-	InitializeWindow(resolution);
+	InitializeWindow(resolution, framerate);
 }
 
-void EGL::Game::InitializeWindow(sf::Vector2i resolution)
+void EGL::Game::InitializeWindow(sf::Vector2i resolution, int framerate)
 {
 	gameWindow.create(sf::VideoMode(resolution.x, resolution.y), "GameWindow");
-	gameWindow.setFramerateLimit(frameRate);
+	gameWindow.setFramerateLimit(framerate);
 }
 
 void EGL::Game::LoadEntities(std::string fileName)

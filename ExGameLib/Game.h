@@ -42,7 +42,7 @@ namespace EGL
 		/// <summary>
 		/// Creates the gameWindow and sets basic properties;
 		/// </summary>
-		void InitializeWindow(sf::Vector2i resolution);
+		void InitializeWindow(sf::Vector2i resolution, int framerate);
 		/// <summary>
 		/// Loads all the entities and their components from a file and adds them to the ECS registry.
 		/// </summary>
