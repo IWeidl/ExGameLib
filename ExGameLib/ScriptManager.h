@@ -1,5 +1,7 @@
 #pragma once
 #include "Components.h"
+#include "Toolbox.h"
+#include <cmath>
 #include <chaiscript/chaiscript.hpp>
 #include <entt/entt.hpp>
 #include <initializer_list>
@@ -23,14 +25,20 @@ namespace EGL {
 		/*
 		* Functions to be bound to chaiscript, prepended with "s_"
 		*/
-
+		
 		/// <summary>
-		/// Moves an entity by x and y.
+		/// Moves an entity forward by distance.
+		/// </summary>
+		/// <param name="entityName">Name of entity to move.</param>
+		/// <param name="distance">Distance to move by.</param>
+		void s_Move(const std::string& entityName, const float& distance);
+		/// <summary>
+		/// Shifts an entity by x and y.
 		/// </summary>
 		/// <param name="entityName"></param>
 		/// <param name="x"></param>
 		/// <param name="y"></param>
-		void s_Move(const std::string& entityName, const float& x, const float& y);
+		void s_Shift(const std::string& entityName, const float& x, const float& y);
 		/// <summary>
 		/// Sets an enity's location (x, y).
 		/// </summary>

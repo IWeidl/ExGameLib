@@ -38,10 +38,11 @@ namespace EGL
 		/// Keeps track of all actions linked to every input. 
 		/// </summary>
 		std::unordered_map<sf::Keyboard::Key, std::vector<std::string>> keyActionMap;
+		void LoadSettings();
 		/// <summary>
 		/// Creates the gameWindow and sets basic properties;
 		/// </summary>
-		void InitializeWindow();
+		void InitializeWindow(sf::Vector2i resolution, int framerate);
 		/// <summary>
 		/// Loads all the entities and their components from a file and adds them to the ECS registry.
 		/// </summary>

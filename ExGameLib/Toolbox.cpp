@@ -29,4 +29,16 @@ namespace EGL {
 		{"y", sf::Keyboard::Key::Y},
 		{"z", sf::Keyboard::Key::Z},
 	};
+	float ToDegrees(float radians)
+	{
+		return radians * (180 / PI);
+	}
+	float ToRadians(float degrees)
+	{
+		return degrees * (PI / 180);
+	}
+	float GetRotation(sf::Sprite& sprite)
+	{
+		return sprite.getRotation() - 90.f;
+	}
 }

@@ -3,16 +3,16 @@
     "name": "Jimmy",
     "health": 10,
     "texture": "player.png",
-    "position": [ 0, 0 ],
+    "position": [ 200, 200 ],
     "inputs": {
-      "w": "EGL.Move(\"player\", 0, -5);",
-      "s": "EGL.Move(\"player\", 0, 5);",
-      "a": "EGL.Move(\"player\", -5, 0);",
-      "d": "EGL.Move(\"player\", 5, 0);",
+      "w": "EGL.Move(\"player\", 5);",
+      "s": "EGL.Move(\"player\", -5);",
+      "a": "EGL.Rotate(\"player\", -5);",
+      "d": "EGL.Rotate(\"player\", 5);",
       "r": "EGL.SetPos(\"player\", 0, 0);",
       "t": "EGL.Delete(\"skeleton\");",
-      "q": "EGL.Rotate(\"player\", -5);",
-      "e": "EGL.Rotate(\"player\", 5);",
+      "q": "EGL.Shift(\"player\", -5, 0);",
+      "e": "EGL.Shift(\"player\", 5, 0);",
       "p": "EGL.AddPositionComponent(\"player\", 0, 0);" 
     }
   },

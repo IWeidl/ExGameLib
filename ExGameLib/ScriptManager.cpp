@@ -22,8 +22,9 @@ void EGL::ScriptManager::LoadFunctions()
 {
 	// EGL Class
 	chai.add(chaiscript::var(this), "EGL");
-
+	
 	chai.add(chaiscript::fun(&ScriptManager::s_Move), "Move");
+	chai.add(chaiscript::fun(&ScriptManager::s_Shift), "Shift");
 	chai.add(chaiscript::fun(&ScriptManager::s_SetPos), "SetPos");
 	chai.add(chaiscript::fun(&ScriptManager::s_DeleteEntity), "Delete");
 	chai.add(chaiscript::fun(&ScriptManager::s_RotateEntity), "Rotate");
@@ -38,7 +39,25 @@ void EGL::ScriptManager::LoadComponents()
 	chai.add(chaiscript::user_type<Input>(), "Input");
 }
 
-void EGL::ScriptManager::s_Move(const std::string& entityName, const float& x, const float& y)
+void EGL::ScriptManager::s_Move(const std::string& entityName, const float& distance)
+{
+	auto view = registry.view<MetaData, Graphics, Position>();
+	for (auto [_entity, _metadata, _graphics, _position] : view.each())
+	{
+		if (_metadata.name == entityName)
+		{
+			float rotation = GetRotation(_graphics.sprite);
+			float dx = distance * std::cos(ToRadians(rotation));
+			float dy = distance * std::sin(ToRadians(rotation));
+			
+			_position.x += dx;
+			_position.y += dy;
+		}
+		
+	}
+}
+
+void EGL::ScriptManager::s_Shift(const std::string& entityName, const float& x, const float& y)
 {
 	auto view = registry.view<MetaData, Position>();
 	for (auto [_entity, _metadata, _position] : view.each())
