@@ -7,11 +7,12 @@ I am using this project as a means to learn new technologies and systems. As suc
 ## Getting Started
 
 ### Installation
-You will first need SFML, ENTT and nlohman JSON (links to both found below). You can include manually, but using vckpkg you can run the below commands to install each package:
+You will first need SFML, ENTT, chaiscript and nlohman JSON (links to both found below). You can include manually, but using vckpkg you can run the below commands to install each package:
 ```
-vcpkg install sfml
-vcpkg install nlohmann-json
-vcpkg install entt
+vcpkg install sfml:x64-windows
+vcpkg install nlohmann-json:x64-windows
+vcpkg install entt:x64-windows
+vcpkg install chaiscript:x64-windows
 ```
 
 ### Usage
