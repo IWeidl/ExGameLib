@@ -57,12 +57,13 @@ void EGL::Game::LoadEntities(std::string fileName)
 		}
 
 		// Load Graphics Components
-		if (node.value().contains("texture"))
+		if (node.value().contains("graphics"))
 		{
-			std::string texturePath = node.value()["texture"];
+			std::string texturePath = node.value()["graphics"]["texture"];
 			sf::Texture texture;
 			sf::Sprite sprite;
-			registry.emplace<Graphics>(entity, texturePath, texture, sprite);
+			int layer = node.value()["graphics"]["layer"];
+			registry.emplace<Graphics>(entity, texturePath, texture, sprite, layer);
 		}
 
 		// Load Input Components
@@ -148,9 +149,15 @@ void EGL::Game::Draw()
 	gameWindow.clear();
 
 	auto view = registry.view<Graphics>();
-	for (auto [_entity, _graphics] : view.each())
+	for (int currentLayer = maxLayers; currentLayer >= 0; currentLayer--)
 	{
-		gameWindow.draw(_graphics.sprite);
+		for (auto [_entity, _graphics] : view.each())
+		{
+
+			if (_graphics.layer == currentLayer)
+				gameWindow.draw(_graphics.sprite);
+
+		}
 	}
 
 	gameWindow.display();

@@ -15,6 +15,7 @@ namespace EGL {
 		std::string texturePath;
 		sf::Texture texture;
 		sf::Sprite sprite;
+		int layer;
 	};
 	struct Input {
 		std::unordered_map<sf::Keyboard::Key, std::string> actions;

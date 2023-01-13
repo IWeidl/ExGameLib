@@ -25,6 +25,7 @@ namespace EGL
 		/// </summary>
 		sf::Clock clock;
 		int frameRate = 60;
+		int maxLayers = 5;
 		float dt;
 		/// <summary>
 		/// Handles all our scripts, what we use to create, load, and execute our scripts.

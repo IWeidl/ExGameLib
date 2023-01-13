@@ -2,7 +2,6 @@
   "player": {
     "name": "Jimmy",
     "health": 10,
-    "texture": "player.png",
     "position": [ 200, 200 ],
     "inputs": {
       "w": "EGL.Move(\"player\", 5);",
@@ -13,7 +12,11 @@
       "t": "EGL.Delete(\"skeleton\");",
       "q": "EGL.Shift(\"player\", -5, 0);",
       "e": "EGL.Shift(\"player\", 5, 0);",
-      "p": "EGL.AddPositionComponent(\"player\", 0, 0);" 
+      "p": "EGL.AddPositionComponent(\"player\", 0, 0);"
+    },
+    "graphics": {
+      "texture": "player.png",
+      "layer": 1
     }
   },
   "villager": {
@@ -22,7 +25,10 @@
   },
   "skeleton": {
     "health": 5,
-    "texture": "enemy.png",
-    "position":[100, 100]
+    "position": [ 100, 100 ],
+    "graphics": {
+      "texture": "enemy.png",
+      "layer": 0
+    }
   }
 }
