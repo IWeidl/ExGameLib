@@ -16,7 +16,7 @@
     },
     "graphics": {
       "texture": "player.png",
-      "layer": 1
+      "layer": 2
     }
   },
   "villager": {
@@ -27,8 +27,7 @@
     "health": 5,
     "position": [ 100, 100 ],
     "graphics": {
-      "texture": "enemy.png",
-      "layer": 0
+      "texture": "enemy.png"
     }
   }
 }

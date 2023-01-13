@@ -62,7 +62,11 @@ void EGL::Game::LoadEntities(std::string fileName)
 			std::string texturePath = node.value()["graphics"]["texture"];
 			sf::Texture texture;
 			sf::Sprite sprite;
-			int layer = node.value()["graphics"]["layer"];
+			int layer;
+			if (node.value()["graphics"].contains("layer"))
+				layer = node.value()["graphics"]["layer"];
+			else
+				layer = 0;
 			registry.emplace<Graphics>(entity, texturePath, texture, sprite, layer);
 		}
 
@@ -149,7 +153,7 @@ void EGL::Game::Draw()
 	gameWindow.clear();
 
 	auto view = registry.view<Graphics>();
-	for (int currentLayer = maxLayers; currentLayer >= 0; currentLayer--)
+	for (int currentLayer = 0; currentLayer <= maxLayers; currentLayer++)
 	{
 		for (auto [_entity, _graphics] : view.each())
 		{
