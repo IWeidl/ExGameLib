@@ -28,6 +28,8 @@ vcpkg install chaiscript:x64-windows
 
 Currently, you can show a window, load entities from a JSON file (including textures) onto the screen, and move them around with custom input mapping.
 
+#### From Source Code
+
 To do this, `#include "Game.h"` then insert the below in to your main function:
 
 ```cpp
@@ -70,6 +72,9 @@ Create an `entities.json` file and put in the entity attributes in similar to be
 When run, the file will be loaded into the game state and the screen will output the entities at the correct with position with the correct texture. The entities can then be moved, rotated, and modified, depending on the player input. 
 
 ![](Assets/example1.gif)
+
+#### From Executable
+Once the executable file has been built, new compilations aren't required. Simply modify the relevant json files and rerun the executable.
 
 ## Future Plans
 - [ ] Replace SFML with lower level graphics implementation, OpenGL most likely
