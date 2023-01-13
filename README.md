@@ -6,6 +6,13 @@ Game Engine written in C++ with SFML and ENTT.
 
 I am using this project as a means to learn new technologies and systems. As such, the code is constantly being refactored and played with. 
 
+The engine currently has the following features:
+- ECS using entt
+- Scripting these entities with ChaiScript
+- Texture Rendering
+  - Layers
+- Keyboard Input
+
 ## Getting Started
 
 ### Installation
